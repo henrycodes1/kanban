@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="light">
+  <div class="container">
+    <header>
+      <h1>Kanban Board</h1>
+      <div class="theme-toggle">
+        <button id="themeToggleBtn" class="icon-toggle" aria-label="Toggle Theme">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Analytics Panel -->
+    <div id="analyticsPanel" class="analytics-panel">
+      <div>Total Tasks: <span id="totalCount">0</span></div>
+      <div>To Do: <span id="todoCount">0</span></div>
+      <div>In Progress: <span id="progressCount">0</span></div>
+      <div>Done: <span id="doneCount">0</span></div>
+      <div>Completed: <span id="donePercent">0%</span></div>
+    </div>
+
+    <!-- Board Area -->
+    <div class="board"></div>
+
+    <!-- Toast Notifications -->
+    <div id="toast"></div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Edit Task</h3>
+        <input type="text" id="editInput" />
+        <div class="modal-actions">
+          <button id="cancelEdit">Cancel</button>
+          <button id="saveEdit">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Task History</h3>
+        <div id="historyList" class="history-list"></div>
+        <div class="modal-actions">
+          <button id="closeHistoryBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Add Task Button -->
+    <button id="globalAddBtn" class="global-add-btn" aria-label="Add Task">
+      <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Global Task Modal -->
+    <div id="globalTaskModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>New Task</h3>
+        <input type="text" id="globalTaskInput" placeholder="Task name" />
+        <select id="globalTaskList">
+          <option value="list1">To Do</option>
+          <option value="list2">In Progress</option>
+          <option value="list3">Done</option>
+        </select>
+        <div class="modal-actions">
+          <button id="cancelGlobalTask">Cancel</button>
+          <button id="submitGlobalTask">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
